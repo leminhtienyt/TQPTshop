@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../public/imgs/img_bootstrap/apple-icon.png">
+  <link rel="icon" type="image/png" href="../public/imgs/img_bootstrap/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Danh sách nhân viên
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  {{!--
+  <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" /> --}}
+  <link href="../public/css/css_bootstrap/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <!-- <link href="../assets/demo/demo.css" rel="stylesheet" /> -->
+  <style>
+    .collapsible_nav {
+      cursor: pointer;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .contentList_nav {
+      width: 90%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      border-radius: 5px;
+      background-color: #302f2f;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body class="dark-edition">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="black">
+      <div class="logo"><a href="#" class="simple-text logo-normal">
+          Creative Tim</a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <div>
+            <li class="nav-item ">
+              <a class="nav-link">
+                <i class="material-icons">person</i>
+                <p>Tổng quan</p>
+              </a>
+            </li>
+          </div>
+          <div>
+            <li class="nav-item ">
+              <a class="nav-link">
+                <i class="material-icons">person</i>
+                <p>Đơn hàng</p>
+              </a>
+            </li>
+          </div>
+          <div>
+            <li class="nav-item ">
+              <a class="nav-link" href="/Admin">
+                <i class="material-icons">person</i>
+                <p>User Profile</p>
+              </a>
+            </li>
+          </div>
+          <div class="collapsible_nav">
+            <div class="content_nav">
+              <li class="nav-item">
+                <a class="nav-link" disabled="true">
+                  <i class="material-icons">inventory_2</i>
+                  <p>Products</p>
+                </a>
+              </li>
+            </div>
+          </div>
+          <div class="contentList_nav">
+            <li class="nav-item ">
+              <a class="nav-link" href="/Products" disabled="true">
+                <i class="material-icons">assignment</i>
+                <p>Danh sách sản phẩm</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="/AddSP" disabled="true">
+                <i class="material-icons">add_circle_outline</i>
+                <p>Thêm sản phẩm</p>
+              </a>
+            </li>
+          </div>
+          <div class="collapsible_nav">
+            <li class="nav-item ">
+              <a class="nav-link" disabled="true">
+                <i class="material-icons">assignment_ind</i>
+                <p>Employees</p>
+              </a>
+            </li>
+          </div>
+          <div class="contentList_nav">
+            <li class="nav-item ">
+              <a class="nav-link" href="/NewEmployee" disabled="true">
+                <i class="material-icons">add_circle_outline</i>
+                <p>New Employee</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="/Employees">
+                <i class="material-icons">assignment_ind</i>
+                <p>Employees list</p>
+              </a>
+            </li>
+          </div>
+          <div style="margin-top: 50px;">
+            <li class="nav-item ">
+              <a class="nav-link" href="/Logout" disabled="true">
+                <i class="material-icons">logout</i>
+                <p>Logout</p>
+              </a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+            aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+
+          <style>
+            .collapsible {
+              cursor: pointer;
+              width: 100%;
+              padding-top: 20px;
+              padding-bottom: 20px;
+              border: none;
+              outline: none;
+              font-size: 15px;
+            }
+
+            .contentList {
+              width: 100%;
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.2s ease-out;
+              border-radius: 5px;
+            }
+
+            .id {
+              width: 9%;
+              text-align: left;
+            }
+
+            .name {
+              width: 22%;
+              text-align: left;
+            }
+
+            .chucvu {
+              width: 25%;
+              text-align: center;
+            }
+
+            .luong {
+              width: 17%;
+              text-align: center;
+            }
+
+            .tinhtrang {
+              width: 20%;
+              text-align: center;
+            }
+
+            .none {
+              width: auto;
+              text-align: center;
+            }
+
+            .tableHead {
+              margin-left: 2%;
+            }
+
+            .tableButton {
+              width: 100%;
+              margin: 0%;
+              padding: 0%;
+            }
+
+            .info {
+              padding-left: 4%;
+              margin: auto;
+            }
+
+            .tablerow {}
+
+            .tablecol {
+              height: 30%;
+              width: 30%;
+              margin-top: 2%;
+              margin-left: 2%;
+            }
+
+            .infomation {
+              width: 80%;
+              height: 50%;
+            }
+
+            .but {}
+
+            .ava {
+              width: 20%;
+              margin: auto;
+            }
+
+            .imgs {
+              width: 90%;
+              height: auto;
+              border-radius: 50%;
+              padding: 0%;
+              margin: auto;
+              margin-bottom: 10%;
+            }
+          </style>
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title ">Danh sách nhân viên</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table tableHead">
+                    <thead class=" text-primary">
+                      <th>
+                        ID
+                      </th>
+                      <th>
+                        Tên nhân viên
+                      </th>
+                      <th>
+                        Chức vụ
+                      </th>
+                      <th>
+                        Lương
+                      </th>
+                      <th>
+                        Tình trạng
+                      </th>
+                    </thead>
+                  </table>
+                  {{#each listNV}}
+                  <tr>
+                    <button class="collapsible btn btn">
+                      <div class="table-responsive">
+                        <table class="tableButton">
+                          <tbody>
+                            <tr>
+                              <td class="id">{{ID_Nhanvien}}</td>
+                              <td class="name">{{TenNV}}</td>
+                              <td class="chucvu">{{Chucvu}}</td>
+                              <td class="luong">{{Luong}}</td>
+                              <td class="tinhtrang">{{Tinhtrang}}</td>
+                              <td class="none"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </button>
+                    <div class="contentList">
+                      <table>
+                        <form method="POST" action="/UpdateNV">
+                          <td class="ava">
+                            <div class="col-md-18" style="padding-top:25%;">
+                              <div class="card-profile">
+                                <div class="imgs">
+                                  <img class="imgs" src="../public/imgs/img/{{Anh_Daidien}}" />
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="infomation">
+                            <div class="info">
+                              <div class="row tablerow">
+                                <div class="tablecol">
+                                  <div>
+                                    <label class="bmd-label-floating">Họ và tên</label>
+                                    <input type="text" class="form-control" value="{{TenNV}}" name="TenNV">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row tablerow">
+                                <div class="tablecol">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Giói tính</label>
+                                    <input type="text" class="form-control" value="{{Gioitinh}}" name="Gioitinh">
+                                  </div>
+                                </div>
+                                <div class="tablecol">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Ngày sinh</label>
+                                    <input type="Date" class="form-control" value="{{Ngaysinh}}" name="Ngaysinh">
+                                  </div>
+                                </div>
+                                <div class="tablecol">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Quốc tịch</label>
+                                    <input type="text" class="form-control" value="{{Quoctich}}" name="Quoctich">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row tablerow">
+                                <div class="tablecol">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Chức vụ</label>
+                                    <input type="text" class="form-control" value="{{Chucvu}}" name="Chucvu">
+                                  </div>
+                                </div>
+                                <div class="tablecol">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Lương mỗi tháng</label>
+                                    <input type="number" class="form-control" value="{{Luong}}" name="Luong">
+                                  </div>
+                                </div>
+                                <div class="tablecol">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Tình trạng</label>
+                                    <input type="text" class="form-control" value="{{Tinhtrang}}" name="Tinhtrang">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row tablerow">
+                                <div class="tablecol">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Số điện thoại</label>
+                                    <input type="text" class="form-control" value="{{SDT}}" name="SDT">
+                                  </div>
+                                </div>
+                                <div class="tablecol">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Email</label>
+                                    <input type="text" class="form-control" value="{{Email}}" name="Email">
+                                  </div>
+                                </div>
+                                <div class="tablecol">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Facebook</label>
+                                    <input type="text" class="form-control" value="{{MangXahoi}}" name="MangXahoi">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row tablerow">
+                                <div class="tablecol">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Địa chỉ</label>
+                                    <input type="text" class="form-control" value="{{Diachi}}" name="Diachi">
+                                  </div>
+                                </div>
+                                <div class="tablecol">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Số CMND/CCCD</label>
+                                    <input type="text" class="form-control" value="{{CMND}}" name="CMND">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          </td>
+                          <td class="but">
+                            <div class="form-group">
+                              <input type="text" value="{{ID_Nhanvien}}" name="ID_Nhanvien" hidden>
+                              <button type="sumit" class="btn btn-primary ">Cập nhật</button>
+                            </div>
+                          </td>
+                        </form>
+                      </table>
+                      <div>
+                        <form method="POST" action="Nghiviec">
+                          <input type="text" value="{{ID_Nhanvien}}" name="ID_Nhanvien" hidden>
+                          <button type="sumit" class="btn bottomright" disabled id="btnNghi{{ID_Nhanvien}}">Nghỉ
+                            việc</button>
+                        </form>
+                      </div>
+                      <script>
+                        tt = "{{Tinhtrang}}";
+                        if (tt == 'Deactivated') {
+                          document.getElementById('btnNghi{{ID_Nhanvien}}').disabled = true;
+                        } else if (tt == 'Activated') {
+                          document.getElementById('btnNghi{{ID_Nhanvien}}').disabled = false;
+                        }
+                      </script>
+                    </div>
+                  </tr>
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var contentList = this.nextElementSibling;
+        if (contentList.style.maxHeight) {
+          contentList.style.maxHeight = null;
+        } else {
+          contentList.style.maxHeight = contentList.scrollHeight + "px";
+        }
+
+      });
+    }
+  </script>
+  <script>
+
+    var coll_nav = document.getElementsByClassName("collapsible_nav");
+    var i;
+    for (i = 0; i < coll_nav.length; i++) {
+      coll_nav[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var contentList_nav = this.nextElementSibling;
+        if (contentList_nav.style.maxHeight) {
+          contentList_nav.style.maxHeight = null;
+        } else {
+          contentList_nav.style.maxHeight = contentList_nav.scrollHeight + "px";
+        }
+
+      });
+    }
+  </script>
+  <script src="../public/js/js_bootstrap/core/jquery.min.js"></script>
+  <script src="../public/js/js_bootstrap/core/popper.min.js"></script>
+  <script src="../public/js/js_bootstrap/core/bootstrap-material-design.min.js"></script>
+  <script src="https://unpkg.com/default-passive-events"></script>
+  <script src="../public/js/js_bootstrap/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chartist JS -->
+  <script src="../public/js/js_bootstrap/plugins/chartist.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../public/js/js_bootstrap/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../public/js/js_bootstrap/material-dashboard.js?v=2.1.0"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+
+</body>
+
+</html>

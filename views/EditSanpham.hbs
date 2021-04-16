@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../public/imgs/img_bootstrap/apple-icon.png">
+  <link rel="icon" type="image/png" href="../public/imgs/img_bootstrap/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Sản phẩm
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  {{!--
+  <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" /> --}}
+  <link href="../public/css/css_bootstrap/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <!-- <link href="../assets/demo/demo.css" rel="stylesheet" /> -->
+  <style>
+    .collapsible {
+      cursor: pointer;
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .khungsp {
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .contentList {
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      border-radius: 5px;
+    }
+
+    .collapsible_nav {
+      cursor: pointer;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .contentList_nav {
+      width: 90%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      border-radius: 5px;
+      background-color: #302f2f;
+      margin: auto;
+    }
+
+    .id {
+      width: 9%;
+      text-align: left;
+    }
+
+    .name {
+      width: 22%;
+      text-align: left;
+    }
+
+    .chucvu {
+      width: 25%;
+      text-align: center;
+    }
+
+    .luong {
+      width: 17%;
+      text-align: center;
+    }
+
+    .tinhtrang {
+      width: 20%;
+      text-align: center;
+    }
+
+    .none {
+      width: auto;
+      text-align: center;
+    }
+
+    .tableHead {
+      margin-left: 2%;
+    }
+
+    .tableButton {
+      width: 100%;
+      margin: 0%;
+      padding: 0%;
+    }
+
+    .info {
+      padding-left: 4%;
+      margin: auto;
+    }
+
+    .tablerow {}
+
+    .tablecol {
+      height: 30%;
+      width: 30%;
+      margin-top: 2%;
+      margin-left: 2%;
+    }
+
+    .infomation {
+      width: 80%;
+      height: 50%;
+    }
+
+    .but {}
+
+    .ava {
+      width: 20%;
+      margin: auto;
+    }
+
+    .imgs {
+      width: 90%;
+      height: auto;
+      border-radius: 50%;
+      padding: 0%;
+      margin: auto;
+      margin-bottom: 10%;
+    }
+
+    .tableHead {
+      margin-left: 2%;
+    }
+
+    .tableButton {
+      width: 100%;
+      margin: 0%;
+      padding: 0%;
+    }
+
+    .id {
+      width: 11%;
+      text-align: left;
+    }
+
+    .TenSP {
+      width: 20%;
+      text-align: left;
+      margin-left: 2%;
+    }
+
+    .Loai_Sanpham {
+      width: 13%;
+      text-align: left;
+      margin-left: 2%;
+    }
+
+    .Hang {
+      width: 28%;
+      margin-left: 2%;
+      text-align: center;
+    }
+
+    .Soluong {
+      width: 15%;
+      margin-left: 2%;
+    }
+
+    .DT {
+      background-color: aqua;
+
+      .COC {
+        background-color: black max-height: 0;
+      }
+
+      .CAP {
+        background-color: blue;
+      }
+
+      .SDP {
+        background-color: rgb(225, 20, 20);
+      }
+
+      .TN {
+        background-color: rgb(209, 17, 113);
+      }
+
+      .THE {
+        background-color: rgb(205, 214, 17);
+      }
+  </style>
+  <style>
+    /*the container must be positioned relative:*/
+    .custom-select {
+      position: relative;
+      font-family: Arial;
+      background-color: dodgerblue;
+    }
+
+    .custom-select select {
+      display: none;
+      /*hide original SELECT element:*/
+    }
+
+    .select-selected {
+      background-color: DodgerBlue;
+    }
+
+    /*style the arrow inside the select element:*/
+    .select-selected:after {
+      position: absolute;
+      content: "";
+      top: 14px;
+      right: 10px;
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+      border-color: #fff transparent transparent transparent;
+    }
+
+    /*point the arrow upwards when the select box is open (active):*/
+    .select-selected.select-arrow-active:after {
+      border-color: transparent transparent #fff transparent;
+      top: 7px;
+    }
+
+    /*style the items (options), including the selected item:*/
+    .select-items div,
+    .select-selected {
+      color: #ffffff;
+      padding: 8px 16px;
+      border: 1px solid transparent;
+      border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /*style items (options):*/
+    .select-items {
+      position: absolute;
+      background-color: DodgerBlue;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 99;
+    }
+
+    /*hide the items when the select box is closed:*/
+    .select-hide {
+      display: none;
+    }
+
+    .select-items div:hover,
+    .same-as-selected {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    #CT_DT,
+    #CT_SDP,
+    #CT_COC,
+    #CT_CAP,
+    #CT_TN,
+    #CT_THE,
+    #CT_OP {
+      display: none;
+    }
+
+    .colhead {
+      style="margin-top: 10px; margin-bottom: 35px"
+    }
+  </style>
+</head>
+
+<body class="dark-edition">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="black">
+      <div class="logo"><a href="#" class="simple-text logo-normal">
+          Creative Tim</a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <div>
+            <li class="nav-item ">
+              <a class="nav-link">
+                <i class="material-icons">person</i>
+                <p>Tổng quan</p>
+              </a>
+            </li>
+          </div>
+          <div>
+            <li class="nav-item ">
+              <a class="nav-link">
+                <i class="material-icons">person</i>
+                <p>Đơn hàng</p>
+              </a>
+            </li>
+          </div>
+          <div>
+            <li class="nav-item ">
+              <a class="nav-link" href="/Admin">
+                <i class="material-icons">person</i>
+                <p>User Profile</p>
+              </a>
+            </li>
+          </div>
+          <div class="collapsible_nav">
+            <div class="content_nav">
+              <li class="nav-item">
+                <a class="nav-link" disabled="true">
+                  <i class="material-icons">inventory_2</i>
+                  <p>Products</p>
+                </a>
+              </li>
+            </div>
+          </div>
+          <div class="contentList_nav">
+            <li class="nav-item ">
+              <a class="nav-link" href="/Products" disabled="true">
+                <i class="material-icons">assignment</i>
+                <p>Danh sách sản phẩm</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="/AddSP" disabled="true">
+                <i class="material-icons">add_circle_outline</i>
+                <p>Thêm sản phẩm</p>
+              </a>
+            </li>
+          </div>
+          <div class="collapsible_nav">
+            <li class="nav-item ">
+              <a class="nav-link" disabled="true">
+                <i class="material-icons">assignment_ind</i>
+                <p>Employees</p>
+              </a>
+            </li>
+          </div>
+          <div class="contentList_nav">
+            <li class="nav-item ">
+              <a class="nav-link" href="/NewEmployee" disabled="true">
+                <i class="material-icons">add_circle_outline</i>
+                <p>New Employee</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="/Employees">
+                <i class="material-icons">assignment_ind</i>
+                <p>Employees list</p>
+              </a>
+            </li>
+          </div>
+          <div style="margin-top: 50px;">
+            <li class="nav-item ">
+              <a class="nav-link" href="/Logout" disabled="true">
+                <i class="material-icons">logout</i>
+                <p>Logout</p>
+              </a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+            aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+        </div>
+      </nav>
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-info">
+                  {{#if sanpham}}
+                  <h4 class="card-title ">Thay đổi thông tin sản phẩm</h4>
+                  {{else}}
+                  <h4 class="card-title ">Thêm sản phẩm mới</h4>
+                  {{/if}}
+                </div>
+                <div class="card-body">
+                  {{#if sanpham}}
+                  <form action="/EditThisSP" method="GET" enctype="multipart/form-data">
+                    {{else}}
+                    <form action="/AddNewSP" method="POST" enctype="multipart/form-data">
+                      {{/if}}
+                      <div class="table-responsive">
+                        <table style="width:100%">
+                          <tr>
+                            <td>
+                              <div class="col-md-12" name="chung">
+                                <div class="card-header card-header-primary colhead"
+                                  style="margin-top: 10px; margin-bottom: 35px">
+                                  <h4 class="card-title mt-0">Thông tin chung</h4>
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Tên sản phẩm:</label>
+                                  <input type="text" class="form-control" name="TenSP" required>
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Loại Sản phẩm:</label>
+                                  <p></p>
+                                  <div class="" style="width:70%; padding: 0px;">
+                                    <select style="padding: 0px;" name="ID_Loai" id="ID_Loai" onchange="loai_Change()"
+                                      required>
+                                      <option value="Null">Loại Sản Phẩm</option>
+                                      <option value="DT">Điện thoại</option>
+                                      <option value="SDP">Sạc dự phòng</option>
+                                      <option value="CAP">Cáp sạc</option>
+                                      <option value="COC">Cốc sạc</option>
+                                      <option value="TN">Tai nghe</option>
+                                      <option value="THE">Thẻ nhớ</option>
+                                      <option value="OP">Ốp lưng</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Hãng sản xuất:</label>
+                                  <input type="text" class="form-control" name="Hang" required>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Giá nhập vào:</label>
+                                  <input type="number" class="form-control" name="Gianhap" required>
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Giá bán ra:</label>
+                                  <input type="number" class="form-control" name="Giaban" required>
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Khuyến mãi theo %:</label>
+                                  <input type="number" class="form-control" name="Khuyenmai" min="0" max="100" required>
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Số lượng nhập:</label>
+                                  <input type="number" class="form-control" name="Soluong" min="0" required>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="col-md-24 " name="chitiet" id="CT_DT"
+                                style="margin-top: 10px; margin-bottom: 35px">
+                                <div class="card-header card-header-primary" style="margin-top: 10px;">
+                                  <h4 class="card-title mt-0">Thông tin Điện thoại</h4>
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">:</label>
+                                  <input type="text" class="form-control" name="SDP_CNsac">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">:</label>
+                                  <input type="text" class="form-control" name="SDP_CNsac">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">:</label>
+                                  <input type="text" class="form-control" name="SDP_CNsac">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">:</label>
+                                  <input type="text" class="form-control" name="SDP_CNsac">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">:</label>
+                                  <input type="text" class="form-control" name="SDP_CNsac">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">:</label>
+                                  <input type="text" class="form-control" name="SDP_CNsac">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">:</label>
+                                  <input type="text" class="form-control" name="SDP_CNsac">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">:</label>
+                                  <input type="text" class="form-control" name="SDP_CNsac">
+                                </div>
+                              </div>
+                              <div class="col-md-24 " name="chitiet" id="CT_SDP"
+                                style="margin-top: 10px; margin-bottom: 35px">
+                                <div class="card-header card-header-primary" style="margin-top: 10px;">
+                                  <h4 class="card-title mt-0">Thông tin Sac dự phòng</h4>
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Hiệu xuất:</label>
+                                  <input type="text" class="form-control" name="SDP_Hieuxuat">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Dung lượng:</label>
+                                  <input type="text" class="form-control" name="SDP_DLpin">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Thời gian sạc đầy:</label>
+                                  <input type="text" class="form-control" name="SDP_TGsac">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Đầu vào:</label>
+                                  <input type="text" class="form-control" name="SDP_Input">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Đầu ra:</label>
+                                  <input type="text" class="form-control" name="SDP_Output">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Lõi pin:</label>
+                                  <input type="text" class="form-control" name="SDP_Core">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Công nghệ sạc:</label>
+                                  <input type="text" class="form-control" name="SDP_CNsac">
+                                </div>
+                              </div>
+                              <div class="col-md-24 " name="chitiet" id="CT_COC"
+                                style="margin-top: 10px; margin-bottom: 35px">
+                                <div class="card-header card-header-primary" style="margin-top: 10px;">
+                                  <h4 class="card-title mt-0">Thông tin Cốc sạc</h4>
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Hệ điều hành:</label>
+                                  <input type="number" class="form-control" name="DT_HDH">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Hệ điều hành:</label>
+                                  <input type="number" class="form-control" name="DT_HDH">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Hệ điều hành:</label>
+                                  <input type="number" class="form-control" name="DT_HDH">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Hệ điều hành:</label>
+                                  <input type="number" class="form-control" name="DT_HDH">
+                                </div>
+                              </div>
+                              <div class="col-md-24 " name="chitiet" id="CT_CAP"
+                                style="margin-top: 10px; margin-bottom: 35px">
+                                <div class="card-header card-header-primary" style="margin-top: 10px;">
+                                  <h4 class="card-title mt-0">Thông tin Cáp sạc</h4>
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Hệ điều hành:</label>
+                                  <input type="number" class="form-control" name="DT_HDH">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Hệ điều hành:</label>
+                                  <input type="number" class="form-control" name="DT_HDH">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Hệ điều hành:</label>
+                                  <input type="number" class="form-control" name="DT_HDH">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Hệ điều hành:</label>
+                                  <input type="number" class="form-control" name="DT_HDH">
+                                </div>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Hệ điều hành:</label>
+                                  <input type="number" class="form-control" name="DT_HDH">
+                                </div>
+                              </div>
+                              <div class="col-md-24 " name="chitiet" id="CT_OP"
+                                style="margin-top: 10px; margin-bottom: 35px">
+                                <div class="card-header card-header-primary" style="margin-top: 10px;">
+                                  <h4 class="card-title mt-0">Thông tin Ốp lưng</h4>
+                                </div>
+
+                              </div>
+                              <div class="col-md-24 " name="chitiet" id="CT_TN"
+                                style="margin-top: 10px; margin-bottom: 35px">
+                                <div class="card-header card-header-primary" style="margin-top: 10px;">
+                                  <h4 class="card-title mt-0">Thông tin Tai nghe</h4>
+                                </div>
+
+                              </div>
+                              <div class="col-md-24 " name="chitiet" id="CT_THE"
+                                style="margin-top: 10px; margin-bottom: 35px">
+                                <div class="card-header card-header-primary" style="margin-top: 10px;">
+                                  <h4 class="card-title mt-0">Thông tin Thẻ nhớ</h4>
+                                </div>
+
+                              </div>
+                              <div class="col-md-24 " name="chitiet" id="CT_Null"
+                                style="margin-top: 10px; margin-bottom: 35px">
+                                <div class="card-header card-header-primary" style="margin-top: 10px;">
+                                  <h4 class="card-title mt-0">Thông tin sản phẩm</h4>
+                                </div>
+
+                              </div>
+                            </td>
+                            <td>
+                              <div class="col-md-24 " name="anh" style="margin-top: 10px; margin-bottom: 35px">
+                                <div class="card-header card-header-primary" style="margin-top: 10px;">
+                                  <h4 class="card-title mt-0">Hình ảnh đính kèm</h4>
+                                </div>
+                                <p></p>
+                                <div style="margin-left: 10%;">
+                                  <input type="file" name="Hinhanh_sp" accept="image/*">
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div class="row" style="margin: 3%;">
+                        {{#if sanpham}}
+                        <button type="submit" class="btn btn-primary pull-right">Sửa sản phẩm</button>
+                        {{else}}
+                        <button type="submit" class="btn btn-primary pull-right">Thêm sản phẩm</button>
+                        {{/if}}
+                        <div class="clearfix"></div>
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- <footer class="footer">
+    <div class="container-fluid">
+
+      <nav class="float-left">
+        <ul>
+          <li>
+            <a href="">
+              Creative Tim
+            </a>
+          </li>
+          <li>
+            <a href="">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="">
+              Licenses
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer> --}}
+  <script>
+    function loai_Change() {
+      let loai_Value = document.getElementById('ID_Loai');
+      let e = loai_Value.options[loai_Value.selectedIndex].value;
+
+      function disAll() {
+        document.getElementById('CT_DT').style.display = 'none';
+        document.getElementById('CT_SDP').style.display = 'none';
+        document.getElementById('CT_COC').style.display = 'none';
+        document.getElementById('CT_CAP').style.display = 'none';
+        document.getElementById('CT_TN').style.display = 'none';
+        document.getElementById('CT_THE').style.display = 'none';
+        document.getElementById('CT_THE').style.display = 'none';
+        document.getElementById('CT_Null').style.display = 'none';
+      }
+
+      switch (e) {
+        case 'DT':
+          disAll();
+          document.getElementById('CT_DT').style.display = 'block';
+          break;
+
+        case 'SDP':
+          disAll();
+          document.getElementById('CT_SDP').style.display = 'block';
+          break;
+        case 'COC':
+          disAll();
+          document.getElementById('CT_COC').style.display = 'block';
+          break;
+        case 'CAP':
+          disAll();
+          document.getElementById('CT_CAP').style.display = 'block';
+          break;
+        case 'TN':
+          disAll();
+          document.getElementById('CT_TN').style.display = 'block';
+          break;
+        case 'THE':
+          disAll();
+          document.getElementById('CT_THE').style.display = 'block';
+          break;
+        case 'OP':
+          disAll();
+          document.getElementById('CT_OP').style.display = 'block'; v
+          break;
+        default:
+          disAll();
+          document.getElementById('CT_DT').style.display = 'block';
+      }
+
+    }
+  </script>
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var contentList = this.nextElementSibling;
+        if (contentList.style.maxHeight) {
+          contentList.style.maxHeight = null;
+        } else {
+          contentList.style.maxHeight = contentList.scrollHeight + "px";
+        }
+
+      });
+    }
+
+    var coll_nav = document.getElementsByClassName("collapsible_nav");
+    var i;
+    for (i = 0; i < coll_nav.length; i++) {
+      coll_nav[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var contentList_nav = this.nextElementSibling;
+        if (contentList_nav.style.maxHeight) {
+          contentList_nav.style.maxHeight = null;
+        } else {
+          contentList_nav.style.maxHeight = contentList_nav.scrollHeight + "px";
+        }
+
+      });
+    }
+  </script>
+  <script>
+    var x, i, j, l, ll, selElmnt, a, b, c;
+    /*look for any elements with the class "custom-select":*/
+    x = document.getElementsByClassName("custom-select");
+    l = x.length;
+    for (i = 0; i < l; i++) {
+      selElmnt = x[i].getElementsByTagName("select")[0];
+      ll = selElmnt.length;
+      /*for each element, create a new DIV that will act as the selected item:*/
+      a = document.createElement("DIV");
+      a.setAttribute("class", "select-selected");
+      a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+      x[i].appendChild(a);
+      /*for each element, create a new DIV that will contain the option list:*/
+      b = document.createElement("DIV");
+      b.setAttribute("class", "select-items select-hide");
+      for (j = 1; j < ll; j++) {
+        /*for each option in the original select element,
+        create a new DIV that will act as an option item:*/
+        c = document.createElement("DIV");
+        c.innerHTML = selElmnt.options[j].innerHTML;
+        c.addEventListener("click", function (e) {
+          /*when an item is clicked, update the original select box,
+          and the selected item:*/
+          var y, i, k, s, h, sl, yl;
+          s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+          sl = s.length;
+          h = this.parentNode.previousSibling;
+          for (i = 0; i < sl; i++) {
+            if (s.options[i].innerHTML == this.innerHTML) {
+              s.selectedIndex = i;
+              h.innerHTML = this.innerHTML;
+              y = this.parentNode.getElementsByClassName("same-as-selected");
+              yl = y.length;
+              for (k = 0; k < yl; k++) {
+                y[k].removeAttribute("class");
+              }
+              this.setAttribute("class", "same-as-selected");
+              break;
+            }
+          }
+          h.click();
+        });
+        b.appendChild(c);
+      }
+      x[i].appendChild(b);
+      a.addEventListener("click", function (e) {
+        /*when the select box is clicked, close any other select boxes,
+        and open/close the current select box:*/
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("select-hide");
+        this.classList.toggle("select-arrow-active");
+      });
+    }
+    function closeAllSelect(elmnt) {
+      /*a function that will close all select boxes in the document,
+      except the current select box:*/
+      var x, y, i, xl, yl, arrNo = [];
+      x = document.getElementsByClassName("select-items");
+      y = document.getElementsByClassName("select-selected");
+      xl = x.length;
+      yl = y.length;
+      for (i = 0; i < yl; i++) {
+        if (elmnt == y[i]) {
+          arrNo.push(i)
+        } else {
+          y[i].classList.remove("select-arrow-active");
+        }
+      }
+      for (i = 0; i < xl; i++) {
+        if (arrNo.indexOf(i)) {
+          x[i].classList.add("select-hide");
+        }
+      }
+    }
+    /*if the user clicks anywhere outside the select box,
+    then close all select boxes:*/
+    document.addEventListener("click", closeAllSelect);
+  </script>
+  <script src="../public/js/js_bootstrap/core/jquery.min.js"></script>
+  <script src="../public/js/js_bootstrap/core/popper.min.js"></script>
+  <script src="../public/js/js_bootstrap/core/bootstrap-material-design.min.js"></script>
+  <script src="https://unpkg.com/default-passive-events"></script>
+  <script src="../public/js/js_bootstrap/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Chartist JS -->
+  <script src="../public/js/js_bootstrap/plugins/chartist.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../public/js/js_bootstrap/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../public/js/js_bootstrap/material-dashboard.js?v=2.1.0"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+
+</body>
+
+</html>

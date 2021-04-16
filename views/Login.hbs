@@ -1,0 +1,84 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+	<link rel="stylesheet" href="../public/css/css_my/Login_css.css" />
+
+	{{!--
+	<link href="../public/css/css_bootstrap/material-dashboard.css?v=2.1.0" rel="stylesheet" /> --}}
+	<link rel="stylesheet" type="text/css"
+		href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	<link href="../public/css/css_bootstrap/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+	<style>
+		.login-wrap {
+			background: url(../public/imgs/img_bootstrap/sidebar-1.jpg) no-repeat center;
+		}
+	</style>
+</head>
+
+<body>
+	{{#if message_alert}}
+	<div class="alert alert-danger">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<i class="material-icons">close</i>
+		</button>
+		<span>
+			<b> Danger - </b> {{message_alert}}</span>
+	</div>
+	{{/if}}
+	<div class="login-wrap">
+		<div class="login-html">
+			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign
+				In</label>
+			<input id="tab-2" type="radio" name="tab" class="sign-up" disabled><label for="tab-2" class="tab"></label>
+			<div class="login-form">
+				<form method="POST" action="Login">
+					<div class="sign-in-htm">
+						<div class="group">
+							<label for="user" class="label">Username</label>
+							<input id="username" type="text" class="input" name="Login_user">
+						</div>
+						<div class="group">
+							<label for="pass" class="label">Password</label>
+							<input id="password" type="password" class="input" data-type="password" name="Login_pass">
+						</div>
+						<div class="group">
+							<input id="check" type="checkbox" class="check">
+							<label for="check"><span class="icon"></span> Keep me Signed in</label>
+						</div>
+						<div class="group">
+							<input type="submit" class="button" value="Sign In">
+						</div>
+						<div class="hr"></div>
+						<div class="foot-lnk">
+							<a href="#forgot">Forgot Password?</a>
+						</div>
+					</div>
+				</form>
+
+				
+			</div>
+		</div>
+	</div>
+	<!--   Core JS Files   -->
+	<script src="../assets/js/core/jquery.min.js"></script>
+	<script src="../assets/js/core/popper.min.js"></script>
+	<script src="../assets/js/core/bootstrap-material-design.min.js"></script>
+	<script src="https://unpkg.com/default-passive-events"></script>
+	<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+	<!-- Place this tag in your head or just before your close body tag. -->
+	<script async defer src="https://buttons.github.io/buttons.js"></script>
+	<!--  Google Maps Plugin    -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+	<!-- Chartist JS -->
+	<script src="../assets/js/plugins/chartist.min.js"></script>
+	<!--  Notifications Plugin    -->
+	<script src="../assets/js/plugins/bootstrap-notify.js"></script>
+	<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+	<script src="../assets/js/material-dashboard.js?v=2.1.0"></script>
+</body>
+
+</html>
